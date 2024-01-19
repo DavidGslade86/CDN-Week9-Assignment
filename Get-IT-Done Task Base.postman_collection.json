@@ -1,0 +1,336 @@
+{
+	"info": {
+		"_postman_id": "dea1d819-959e-4f7f-866c-9e3af06f0158",
+		"name": "Get-IT-Done Task Base",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "30952590"
+	},
+	"item": [
+		{
+			"name": "User Routes",
+			"item": [
+				{
+					"name": "Register User",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\":\"dg\",\r\n    \"email\":\"dg@email.com\",\r\n    \"password\":\"secret\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{DEPLOYURL}}/auth/register",
+							"host": [
+								"{{DEPLOYURL}}"
+							],
+							"path": [
+								"auth",
+								"register"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Login User",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\":\"dg@email.com\",\r\n    \"password\":\"secret12345\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{DEPLOYURL}}/auth/login",
+							"host": [
+								"{{DEPLOYURL}}"
+							],
+							"path": [
+								"auth",
+								"login"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "List Routes",
+			"item": [
+				{
+					"name": "Get All Lists",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{PRODURL}}/lists/",
+							"host": [
+								"{{PRODURL}}"
+							],
+							"path": [
+								"lists",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Single List",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{DEPLOYURL}}/tasks/65a954126560d94714919627",
+							"host": [
+								"{{DEPLOYURL}}"
+							],
+							"path": [
+								"tasks",
+								"65a954126560d94714919627"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Single List",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{DEPLOYURL}}/lists/65a953da6560d94714919625",
+							"host": [
+								"{{DEPLOYURL}}"
+							],
+							"path": [
+								"lists",
+								"65a953da6560d94714919625"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Single List",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"importance\": \"High\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{DEPLOYURL}}/lists/65a9d6924c106a0032bab503",
+							"host": [
+								"{{DEPLOYURL}}"
+							],
+							"path": [
+								"lists",
+								"65a9d6924c106a0032bab503"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create List",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"listName\":\"new list5\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{DEPLOYURL}}/lists/",
+							"host": [
+								"{{DEPLOYURL}}"
+							],
+							"path": [
+								"lists",
+								""
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Task Routes",
+			"item": [
+				{
+					"name": "Get All Tasks",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"task\": \"task1\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{DEPLOYURL}}/tasks",
+							"host": [
+								"{{DEPLOYURL}}"
+							],
+							"path": [
+								"tasks"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Single Task",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{DEPLOYURL}}/tasks/65a955ff664b99aae0ec447b",
+							"host": [
+								"{{DEPLOYURL}}"
+							],
+							"path": [
+								"tasks",
+								"65a955ff664b99aae0ec447b"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Single Task",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{DEPLOYURL}}/tasks/65a954126560d94714919627",
+							"host": [
+								"{{DEPLOYURL}}"
+							],
+							"path": [
+								"tasks",
+								"65a954126560d94714919627"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Single Task",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"completed\": true\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{DEPLOYURL}}/tasks/65a954126560d94714919627",
+							"host": [
+								"{{DEPLOYURL}}"
+							],
+							"path": [
+								"tasks",
+								"65a954126560d94714919627"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Single List Tasks",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{DEPLOYURL}}/tasks/list/65a953da6560d94714919625",
+							"host": [
+								"{{DEPLOYURL}}"
+							],
+							"path": [
+								"tasks",
+								"list",
+								"65a953da6560d94714919625"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create Task",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"taskName\": \"task6\",\r\n    \"listIds\":[\"65a95697664b99aae0ec447f\"]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{DEPLOYURL}}/tasks",
+							"host": [
+								"{{DEPLOYURL}}"
+							],
+							"path": [
+								"tasks"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
