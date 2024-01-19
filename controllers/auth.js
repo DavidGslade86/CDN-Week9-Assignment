@@ -2,7 +2,7 @@ const User = require('../models/User');
 const { StatusCodes } = require('http-status-codes');
 const {BadRequestError, UnauthenticatedError} = require('../errors');
 
-const register = async (req, res) => {
+const register = async (req, res, next) => {
     try{
         const user = await User.create({...req.body});
         const token = user.createJWT();
@@ -18,11 +18,11 @@ const register = async (req, res) => {
             name:{name:user.name}
     })
     } catch(error) {
-        throw new BadRequestError(error.message);
+        next(error);
     }
 };
 
-const login = async (req, res) => {
+const login = async (req, res, next) => {
     try{
         const {email, password} = req.body;
         if(!email||!password) {
@@ -31,12 +31,12 @@ const login = async (req, res) => {
 
         const user = await User.findOne({email})
         if(!user) {
-            throw new UnauthenticatedError(`That email/password combination doesn't match anything we have on file.`);
+            throw new UnauthenticatedError(`Can't find a user with that email.`);
         }
 
         const isPasswordCorrect = await user.comparePassword(password);
         if(! isPasswordCorrect) {
-            throw new UnauthenticatedError(`That email/password combination doesn't match anything we have on file.`);
+            throw new UnauthenticatedError(`That email/password combination doesn't match.`);
         }
         const token = user.createJWT();
         const cookiesOptions = {
@@ -49,7 +49,7 @@ const login = async (req, res) => {
             message:"User successfully logged in!"
         })
     } catch(error) {
-        throw new BadRequestError(error.message);
+        next(error);
     }
 };
 

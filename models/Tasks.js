@@ -18,6 +18,11 @@ const TaskSchema = new mongoose.Schema({
     notes:{
         type: String,
     },
+    listIds: {
+        type: [mongoose.Types.ObjectId],
+        ref: 'List',
+        required: [true, 'Please provide at least one list.']
+    },
     createdBy:{
         type: mongoose.Types.ObjectId,
         ref:'User',
